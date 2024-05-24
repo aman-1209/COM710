@@ -1,0 +1,173 @@
+{% load static %}
+<!-- Load Django static files tag for accessing CSS, JS, images -->
+
+<footer class="page-footer">
+    <div class="container">
+        <!-- Footer content container -->
+        <div class="row">
+            <!-- Contact Information Column -->
+            <div class="col s12 m4">
+                <h5 class="white-text">Contact</h5>
+                <p class="grey-text text-lighten-4">
+                    <!-- Admission Enquiries Section -->
+                    <h6 style="font-size: 18px; font-weight: bold;">Admission enquiries</h6>
+                    Telephone: 023 8201 3000 <br>
+                    <a style="color: white; font-style: italic; text-decoration: underline;"
+                        href="mailto:admissions@solent.ac.uk"> Email: admissions@solent.ac.uk</a>
+                </p>
+                <p class="grey-text text-lighten-4">
+                    <!-- General Enquiries Section -->
+                    <h6 style="font-size: 18px; font-weight: bold;">General enquiries</h6>
+                    Telephone: 023 8201 5066 <br>
+                    Solent University, East Park Terrace, <br> Southampton, SO14 0YN
+                </p>
+                <h5 class="white-text">Visitor Counts</h5>
+                <!-- Visitor Count Display -->
+                <p class="grey-text text-lighten-4">You have visited this page <span id="visitCount">0</span> times.</p>
+            </div>
+
+            <!-- About Us and Language Selection Column -->
+            <div class="col s12 m4" id="langwrap">
+                <h5 class="white-text">About Us</h5>
+                <a class="about-us-links" href="https://www.solent.ac.uk/about/our-governance-and-organisation"
+                    target="_blank">
+                    <p class="grey-text text-lighten-4" id="footerabout">Our governance</p>
+                </a>
+                <a class="about-us-links" href="https://www.solent.ac.uk/about/term-dates" target="_blank">
+                    <p class="grey-text text-lighten-4" id="footerabout">Term date</p>
+                </a>
+                <a class="about-us-links" href="https://www.solent.ac.uk/about/working-at-solent" target="_blank">
+                    <p class="grey-text text-lighten-4" id="footerabout">Career at Solent</p>
+                </a>
+                <a class="about-us-links" href="https://www.solent.ac.uk/about/our-facts-and-figures" target="_blank">
+                    <p class="grey-text text-lighten-4" id="footerabout">Facts and figures</p>
+                </a>
+
+                <!-- Language Selector -->
+                <h5 class="white-text" style="margin-top: 40px;" id="lang_text">Language</h5>
+                <div class="input-field" id="languageSelectorContainer">
+                    <select class="icons" id="languageSelector" onchange="changeLanguage(this.value)">
+                        <option value="en" data-icon="{% static 'img/britain.jpg' %}" class="left circle">English
+                        </option>
+                        <option value="in" data-icon="{% static 'img/india.png' %}" class="left circle">Hindi</option>
+                        <option value="du" data-icon="{% static 'img/germany.jpeg' %}" class="left circle">German</option>
+                        <option value="fr" data-icon="{% static 'img/france.jpg' %}" class="left circle">French</option>
+                        <option value="cn" data-icon="{% static 'img/china.png' %}" class="left circle">Chinese (Simplified)</option>
+                        <option value="nl" data-icon="{% static 'img/netherlands.jpg' %}" class="left circle">Dutch
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Social Media Links Column -->
+            <div class="col s12 m4">
+                <h5 class="white-text">Follow Us</h5>
+                <!-- Social Media Icons with links -->
+                <a class="social-icon" href="https://www.facebook.com/SolentUniversity/?locale=en_GB" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a class="social-icon" href="https://twitter.com/SolentUni" target="_blank">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a class="social-icon" href="https://www.youtube.com/@SolentUni" target="_blank">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+                <a class="social-icon" href="https://www.instagram.com/solentuniversity/?hl=en" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a class="social-icon" href="https://uk.linkedin.com/school/solentuni/" target="_blank">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a class="social-icon" href="https://www.tiktok.com/@solentuniofficial" target="_blank">
+                    <ion-icon name="logo-tiktok"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright and other footer information -->
+    <div class="footer-copyright">
+        <div class="container">
+            © Solent University
+        </div>
+    </div>
+</footer>
+
+<!-- Importing Ionicons for Social Media icons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Importing Javascript file -->
+<script type="text/javascript" src="{% static 'js/jscript.js' %}"></script>
+
+<script>
+    // Footer JavaScript Functions
+
+    // Initialize materialize select when document is ready
+    $(document).ready(function () {
+        $('select').material_select(); // Activates the select plugin
+    });
+
+    // Prevent form submission if gender is not selected
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('form'); // Adjust this selector to target your form correctly
+
+        form.addEventListener('submit', function (e) {
+            var isChecked = document.querySelector('input[name="gender"]:checked');
+            if (!isChecked) {
+                e.preventDefault(); // Prevent form submission
+                alert('Please select a gender.'); // Alert user
+            }
+        });
+    });
+
+    //Sorting columns of the Module Table
+    $(document).ready(function () {
+        $('.bordered').DataTable({
+            "paging": false,
+            "searching": false,
+            columnDefs: [{
+                orderable: false,
+                targets: 3
+            }]
+        });
+    });
+
+    // Track and display the number of visits to the About page using localStorage
+    document.addEventListener('DOMContentLoaded', function () {
+        var visits = parseInt(localStorage.getItem('visitCount'), 10) ||
+            0; // Get visit count or initialize to 0
+        var displayElement = document.getElementById('visitCount'); // Element to display visit count
+
+        if (document.getElementById('aboutPage')) {
+            visits++; // Increment on visit to About page
+            localStorage.setItem('visitCount', visits); // Update storage
+            if (displayElement) {
+                displayElement.textContent = `${visits}`; // Display updated count
+            }
+        } else {
+            // Display count without incrementing on other pages
+            if (displayElement) {
+                displayElement.textContent = `${visits}`;
+            }
+        }
+    });
+
+    // Function to hide the language selector
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the current URL path
+        var path = window.location.pathname;
+
+        // Get the language selector container
+        var languageSelectorContainer = document.getElementById('languageSelectorContainer');
+        var lang_text = document.getElementById('lang_text');
+
+        // Check if the current page is the about page
+        if (path !== '/') {
+            // Hide the language selector if not on the about page
+            languageSelectorContainer.style.display = 'none';
+            lang_text.style.display = 'none';
+
+        }
+    });
+</script>

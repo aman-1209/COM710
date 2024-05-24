@@ -1,0 +1,102 @@
+<!-- Include the header template -->
+{% include "header.html" %}
+<!-- Load static files like CSS, JavaScript, and images -->
+<!-- {% load static %} -->
+
+<!-- Navigation for desktop and mobile -->
+<nav>
+    <div class="nav-wrapper">
+        <!-- Mobile menu button -->
+        <a href="#" data-activates="mobile-link" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+        <!-- Desktop navigation -->
+        <ul class="center hide-on-med-and-down">
+            <li class="active"><a href="{% url 'aboutus' %}">ABOUT</a></li>
+            <li><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+            <li><a href="{% url 'modules' %}">MODULES</a></li>
+            <li><a href="{% url 'registration' %}">REGISTRATION</a></li>
+        </ul>
+        <!-- Mobile navigation -->
+        <ul class="side-nav" id="mobile-link">
+            <li class="active"><a href="{% url 'aboutus' %}">ABOUT</a></li>
+            <li><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+            <li><a href="{% url 'modules' %}">MODULES</a></li>
+            <li><a href="{% url 'registration' %}">REGISTRATION</a></li>
+        </ul>
+    </div>
+</nav>
+
+<body id="aboutPage">
+  <title>Solent-About Us</title>
+    <!-- About Us section -->
+    <div class="row">
+        <h3 class="center" id="aboutus_Lheading">About Us</h3>
+        <!-- Solent History Card -->
+        <div class="col s12 m6 l4">
+            <div class="row">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{% static 'img/solent_history.jpg' %}" alt="Solent_History">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title" id="solent_history_lang"><b>Solent History</b></span>
+                        <p id="sh_text_lang">Solent has been a university since July 2005, but it has a long and complex educational history. 
+                           Incorporated as an independent higher education institution in 1989, origins can be traced back to a private School of Art founded in 1855. 
+                           <a href="https://www.solent.ac.uk/about/our-history" target="_blank">For more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Solent Ambition Card -->
+        <div class="col s12 m6 l4">
+            <div class="row">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{% static 'img/solent_ambition.jpg' %}" alt="Solent_Ambition">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title" id="solent_ambition_lang"><b>Solent Ambition</b></span>
+                        <p id="sa_text_lang">We aim to empower students by increasing their confidence and improving their career opportunities. 
+                           We are committed to constantly improving our educational programs to make sure every student can reach their highest potential. 
+                           <a href="https://www.solent.ac.uk/about/mission-and-strategy" target="_blank">For more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Solent Gym Card -->
+        <div class="col s12 m6 l4">
+            <div class="row">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{% static 'img/solent_gym.jpg' %}" alt="Solent_Gym">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title" id="solent_gym_lang"><b>Solent Gym</b></span>
+                        <p id="sg_text_lang">The gym is fully staffed at all times by our professional trainers and instructors. It is open to all Solent students and staff, as well as the general public. 
+                           There are no joining fees and plenty of memberships available to suit you.
+                           <a href="https://sportscomplex.solent.ac.uk/the-solent-gym" target="_blank"> For more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional About Us Text -->
+    <div class="row">
+        <div class="col s12 m8">
+            <div class="aboutus-text">
+                <h4 class="center" id="welcome_lang">Welcome</h4>
+                <p id="w_text_lang"><b>Solent University is all about creating opportunities: for its students, for its staff, for its partners. It offers expertise and experiences you couldn’t get anywhere else, opening doors and making introductions.</b></p>
+                <p id="w_lang_1">We’re focused on the practical side of higher education – giving our students the connections, experience and confidence to turn their newfound knowledge into a career with real, meaningful impact. Whoever you are, whatever your goals, we want to help you make your mark. <br>
+                   Find out more about <a href="https://www.solent.ac.uk/studying-at-solent" target="_blank">what we offer our students</a> or follow the links below to explore our history, governance, campus and recent achievements.</p>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <img src="{% static 'img/solent_about-us.jpg' %}" alt="Solent_AboutUs" class="responsive-img">
+        </div>
+    </div>
+    
+<!-- Footer include -->
+{% include "footer.html" %}
+</body>

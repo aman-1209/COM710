@@ -1,0 +1,123 @@
+{% include "header.html" %}
+<!-- Include the header template -->
+<!-- {% load static %} -->
+<!-- Load static resources such as CSS, JS, and images -->
+<!-- {% load static %} This will directly call static files eg. css, js and images -->
+
+
+<!-- Navigation bar setup -->
+<nav>
+    <div class="nav-wrapper">
+        <!-- Trigger for the mobile menu -->
+        <a href="#" data-activates="mobile-link" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+        <!-- Desktop navigation links -->
+        <ul class="center hide-on-med-and-down">
+            <li><a href="{% url 'aboutus' %}">ABOUT</a></li>
+            <li><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+            <li><a href="{% url 'modules' %}">MODULES</a></li>
+            <li class="active"><a href="{% url 'registration' %}">REGISTRATION</a></li>
+        </ul>
+        <!-- Mobile navigation links -->
+        <ul class="side-nav" id="mobile-link">
+            <li><a href="{% url 'aboutus' %}">ABOUT</a></li>
+            <li><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+            <li><a href="{% url 'modules' %}">MODULES</a></li>
+            <li class="active"><a href="{% url 'registration' %}">REGISTRATION</a></li>
+        </ul>
+    </div>
+</nav>
+
+<body id="registrationPage">
+  <title>Solent-Registration</title>
+    <div class="container">
+        <div class="row">
+            <!-- Section for the registration form header -->
+            <div class="col s12 m12">
+                <h3 class="center">Registration Form</h3>
+                <!-- Start of the registration form -->
+                <form class="col s12 m12" action="{% url 'insertuser' %}" method="post" name="registration_form">
+                    {% csrf_token %}
+                    <!-- Token for form security -->
+                    <!-- Input fields for first name and last name -->
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="first_name" name="fname" type="text" class="validate" required>
+                            <label for="first_name">First Name*</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="last_name" name="lname" type="text" class="validate" required>
+                            <label for="last_name">Last Name*</label>
+                        </div>
+                    </div>
+                    <!-- Input field for mobile number with validation -->
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="mobile" type="text" name="mobile" class="validate" required pattern="\d{11}"
+                                maxlength="11">
+                            <label for="mobile">Mobile Number*</label>
+                        </div>
+                        <!-- Options for gender selection -->
+                        <div class="col s12 m6" style="margin-top: 40px;">
+                            <span style="font-size: 18px;">Gender*</span>
+                            <input name="gender" type="radio" id="male" value="Male" />
+                            <label for="male">Male</label>
+                            <input name="gender" type="radio" id="female" value="Female" />
+                            <label for="female">Female</label>
+                            <input name="gender" type="radio" id="other" value="Other" />
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <!-- Password and confirmation fields with pattern enforcement -->
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="password" name="password" type="password" class="validate"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{9,}$"
+                                title="Password must be at least 9 characters long and include at least one uppercase letter, one lowercase letter, and one special character."
+                                required>
+                            <label for="password">Password*</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="con_password" name="con_password" type="password" class="validate"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{9,}$"
+                                title="Password must be at least 9 characters long and include at least one uppercase letter, one lowercase letter, and one special character."
+                                required>
+                            <label for="con_password">Confirm Password*</label>
+                        </div>
+                    </div>
+                    <!-- Textarea for additional comments with character limit -->
+                    <div class="row">
+                        <div class="input-field col s12 m12">
+                            <textarea id="comment" name="comment" class="materialize-textarea"
+                                data-length="120"></textarea>
+                            <label for="comment">Comment</label>
+                        </div>
+                    </div>
+                    <!-- Submission button for the form -->
+                    <div class="row">
+                        <div class="input-field col s12 m12 center">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Display messages, if any -->
+                    <div class="row">
+                        <div class="input-field col s12 m12 center">
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div{% if message.tags %} class="alert {{ message.tags }}" {% endif %}>
+                                {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <!-- Footer inclusion -->
+    {% include "footer.html" %}
+</body>

@@ -1,0 +1,151 @@
+<!-- Include the header template -->
+{% include "header.html" %}
+<!-- {% load static %} -->
+<!-- Load static files such as CSS, JavaScript, and images -->
+<!-- The static tag helps in referencing static content efficiently -->
+
+<nav>
+    <!-- Navigation wrapper -->
+    <div class="nav-wrapper">
+        <!-- Mobile menu button -->
+        <a href="#" data-activates="mobile-link" class="button-collapse"><i class="material-icons">menu</i></a>
+        <!-- Navigation links for large screens, hidden on medium and small screens -->
+        <ul class="center hide-on-med-and-down">
+            <li><a href="{% url 'aboutus' %}">ABOUT</a></li>
+            <li class="active"><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+            <li><a href="{% url 'modules' %}">MODULES</a></li>
+            <li><a href="{% url 'registration' %}">REGISTRATION</a></li>
+        </ul>
+        <!-- Side navigation for mobile views -->
+        <ul class="side-nav" id="mobile-link">
+            <li><a href="{% url 'aboutus' %}">ABOUT</a></li>
+            <li class="active"><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+            <li><a href="{% url 'modules' %}">MODULES</a></li>
+            <li><a href="{% url 'registration' %}">REGISTRATION</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main body of the Activities page -->
+
+<body id="activitiesPage">
+  <title>Solent-Activities</title>
+    <div class="row">
+        <!-- Column configuration for responsiveness -->
+        <div class="col s12 m12">
+            <!-- Page title -->
+            <h3 class="center">Activities Introduction</h3>
+            <!-- Description of activities with a margin at the bottom for spacing -->
+            <p style="margin-bottom: 30px;">
+                With more than thirty sports clubs that compete in regional and national events, such as the British
+                Universities and Colleges Sport (BUCS) championships,
+                Solent University provides plenty of activities to do.
+                The annual Varsity game, a passionate matchup with Bournemouth University that unites the student body,
+                is the highlight of the athletic calendar.
+                Apart from offering competitive sports, Solent also enhances professional preparedness by offering
+                real-world student placements in sports administration and coaching.
+                Notable groups include Team Solent Basketball, which practices at Sports Centre St Mary's, and Team
+                Solent Football, which plays at the Test Park sports field.
+            </p>
+            <!-- Main container for the Sports Clubs section -->
+            <div class="col s12 m8">
+                <!-- Text description for the Sports Clubs -->
+                <div class="aboutus-text">
+                    <h4 class="center">SPORTS CLUBS</h4>
+                    <p><b>There are over 30 sports clubs at Solent, so you're bound to find one you want to join! Many
+                            compete in local and national competitions, as well as the BUCS championships.</b></p>
+                </div>
+            </div>
+            <!-- Image related to the Sports Clubs -->
+            <div class="col s12 m4">
+                <img src="{% static 'img/solent_sportsclub.jpg'%}" alt="Sports_Club" class="responsive-img">
+            </div>
+
+            <!-- Main container for the Varsity section -->
+            <div class="col s12 m8">
+                <!-- Text description for the Varsity event -->
+                <div class="aboutus-text">
+                    <h4 class="center">VARSITY</h4>
+                    <p><b>The highlight of our sporting year - Varsity is an annual event between Solent University and
+                            Bournemouth University that takes place over two days.</b></p>
+                </div>
+            </div>
+            <!-- Image related to the Varsity event -->
+            <div class="col s12 m4">
+                <img src="{% static 'img/varsity.jpg'%}" alt="Varsity" class="responsive-img">
+            </div>
+
+            <!-- Main container for Student Placements section -->
+            <div class="col s12 m8">
+                <!-- Text description for Student Placements -->
+                <div class="aboutus-text">
+                    <h4 class="center">STUDENT PLACEMENTS</h4>
+                    <p><b>Solent Sport student placements offers you the opportunity to get the most out of your student
+                            experience.</b></p>
+                </div>
+            </div>
+            <!-- Image related to Student Placements -->
+            <div class="col s12 m4">
+                <img src="{% static 'img/solent_placement.jpg'%}" alt="Solent_placement" class="responsive-img">
+            </div>
+
+            <!-- Main container for Team Solent Football section -->
+            <div class="col s12 m8">
+                <!-- Text description for Team Solent Football -->
+                <div class="aboutus-text">
+                    <h4 class="center">TEAM SOLENT FOOTBALL</h4>
+                    <p><b>Team Solent Football is one of the most successful university football clubs in recent years.
+                            Both the men's and women's teams play their home games at Solent's Test Park sports
+                            ground.</b></p>
+                </div>
+            </div>
+            <!-- Image related to Team Solent Football -->
+            <div class="col s12 m4">
+                <img src="{% static 'img/solent_football.jpg'%}" alt="Solent_Football" class="responsive-img">
+            </div>
+
+            <div class="col s12 m8">
+                <!-- About us section for Team Solent Basketball -->
+                <div class="aboutus-text">
+                    <h4 class="center">TEAM SOLENT BASKETBALL</h4>
+                    <p><b>Team Solent Kestrels has a men's and women's squad. Both teams train at Sports Centre St
+                            Mary's and carry on a long tradition of basketball at Solent University.</b></p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <!-- Image for the Team Solent Basketball section -->
+                <img src="{% static 'img/solent_basketball.jpeg'%}" alt="Solent_Basketball" class="responsive-img">
+            </div>
+
+            <div class="col s12 m8">
+                <!-- About us section for Team Solent Cricket -->
+                <div class="aboutus-text">
+                    <h4 class="center">TEAM SOLENT CRICKET</h4>
+                    <p><b>Team Solent Cricket competes in the top university league, regularly playing against some of
+                            the best teams in the country including Loughborough, Durham and Oxford.</b></p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <!-- Image for the Team Solent Cricket section -->
+                <img src="{% static 'img/solent_cricket.jpg'%}" alt="Solent_Cricket" class="responsive-img">
+            </div>
+
+            <div class="col s12 m8">
+                <!-- About us section for Team Solent Wheelchair Rugby -->
+                <div class="aboutus-text">
+                    <h4 class="center">TEAM SOLENT WHEELCHAIR RUGBY</h4>
+                    <p><b>Team Solent Sharks competes in the Great Britain Wheelchair Rugby (GBWR) Super Series league
+                            and plays a key role in promoting the sport for disabled athletes.</b></p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <!-- Image for the Team Solent Wheelchair Rugby section -->
+                <img src="{% static 'img/solent_rugby.jpg'%}" alt="Solent_Rugby" class="responsive-img">
+            </div>
+
+        </div>
+    </div>
+    <!-- Footer inclusion -->
+    {% include "footer.html" %}
+
+</body>

@@ -1,0 +1,168 @@
+{% include "header.html" %}
+<!-- Include header template -->
+
+<!-- {% load static %} -->
+<!-- Load static resources such as CSS, JS, and images -->
+<!-- {% load static %} This will directly call static files eg. css, js and images -->
+
+<!-- Navigation bar setup -->
+<nav>
+  <!-- Navigation wrapper for styling and alignment -->
+  <div class="nav-wrapper">
+    <!-- Mobile menu collapse button -->
+    <a href="#" data-activates="mobile-link" class="button-collapse">
+      <!-- Icon for mobile menu button -->
+      <i class="material-icons">menu</i>
+    </a>
+    <!-- Navigation links for medium to large screens, hidden on small screens -->
+    <ul class="center hide-on-med-and-down">
+      <li><a href="{% url 'aboutus' %}">ABOUT</a></li>
+      <li><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+      <li class="active"><a href="{% url 'modules' %}">MODULES</a></li>
+      <li><a href="{% url 'registration' %}">REGISTRATION</a></li>
+    </ul>
+    <!-- Side navigation for mobile screens -->
+    <ul class="side-nav" id="mobile-link">
+      <li><a href="{% url 'aboutus' %}">ABOUT</a></li>
+      <li><a href="{% url 'activities' %}">ACTIVITIES</a></li>
+      <li class="active"><a href="{% url 'modules' %}">MODULES</a></li>
+      <li><a href="{% url 'registration' %}">REGISTRATION</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<body id="modulePage">
+  <!-- Title section of the page -->
+  <title>Solent-Modules</title>
+  <div>
+    <h3 class="center">Modules</h3>
+  </div>
+  <!-- Scrollable table container -->
+  <div class="scrollable-div">
+    <!-- Responsive table for displaying module details -->
+    <table class="bordered centered responsive-table">
+      <thead>
+        <tr>
+          <th width="5%">ID</th>
+          <th width="30%">Name</th>
+          <th width="10%">Semester</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Each row contains details about a specific module -->
+        <tr>
+          <td>COM709</td>
+          <td>Computer Fundamentals</td>
+          <td>1</td>
+          <td>The module introduces computer fundamentals and related concepts. A broad background to the history of
+            computing will be covered beginning with computer organisation,
+            functioning, and architecture then focusing on number systems, as well as components, and their performance,
+            computational methods, and novel concepts and solutions.</td>
+        </tr>
+        <tr>
+          <td>COM712</td>
+          <td>Networking</td>
+          <td>1</td>
+          <td>This module is an introduction to networks and is designed to develop the skills necessary to plan and
+            implement small networks across a range of applications.
+            The module considers the basic design of a network infrastructure and addresses issues arising from the
+            pre-installation and implementation stages of its development.
+            It also considers network configuration, troubleshooting, monitoring and support issues.
+            By the end of the module, students will be able to build simple LANs, perform basic configurations for
+            routers and switches, and implement IP addressing schemes.
+          </td>
+        </tr>
+        <tr>
+          <td>MAA103</td>
+          <td>Research Methods</td>
+          <td>1</td>
+          <td>Throughout this module, we will first delve into the fundamental philosophies and concepts that underpin
+            research, providing you with a solid foundational understanding.
+            Subsequently, we will explore the core methodological approaches that serve as the bedrock for rigorous
+            research practices.
+            Moving beyond theory, we will then embark on a detailed exploration of specific research methods, each of
+            which is a vital component of robust research endeavours.</td>
+        </tr>
+        <tr>
+          <td>COM716</td>
+          <td>Security & Ethical Hacking</td>
+          <td>1</td>
+          <td>Ethical hacking is one of the core specialisations in Cybersecurity.
+            This module provides the theoritical and practical background which would allow students pursue a career in
+            Ethical Hacking and other associated Cybersecurity specialisations.
+            This module is based mainly on the official EC Council Certified Ethical Hacker v12 Certification training.
+          </td>
+        </tr>
+        <tr>
+          <td>COM713</td>
+          <td>Cyber Security Application</td>
+          <td>2</td>
+          <td>Cybersecurity is concerned with the protection of critical data and resources across the cyber space.
+            In this module we would be studying a cross section of the different controls required to protect our
+            information systems.
+            We shall be looking at various methods to secure networks, applications, data and other components on our
+            information systems.
+            Knowledge and skills gained from this module would prepare you for roles such as cybersecurity analyst,
+            network security engineer amongst other roles.</td>
+        </tr>
+        <tr>
+          <td>COM715</td>
+          <td>Cyber Security Management</td>
+          <td>2</td>
+          <td>In the modern world of billions of connected devices knowledge in Cybersecurity and skills in management
+            of information confidentiality,
+            integrity and availability become essential, as well as ability to identify security risks and carry out
+            risk assessments and mitigation.
+            Cybersecurity professional should identify vulnerabilities and threats and gain an appreciation of how these
+            threats can materialise and the typical attacks that can be carried to exploit vulnerabilities in a system.
+            This module also involve the wider personal, organizational and regulatory context in which information
+            systems are used and the impact of this on how cybersecurity is implemented.</td>
+        </tr>
+        <tr>
+          <td>COM700</td>
+          <td>Professional Issues and Practices</td>
+          <td>2</td>
+          <td>Current requirements by industry for professional standards indicate that every software engineer and
+            manager must be aware of and abide by those standards. However, just abiding by them is not sufficient.
+            Everyone within the organisation must be looking towards improvement of both their own standards and company
+            standards.
+            It is also necessary to identify how factors in business might impact on standards accounting for Legal,
+            Social, Ethical and Professional issues (LSEPI) and also regulatory consequences of action or inaction.
+            The only way to achieve this is with a knowledge of current practice and a goal or some goals that could be
+            achieved.
+            The module will look at standards of practice, not as a set of static documents but as a dynamic set of
+            potential achievements, as for example envisaged by TickITplus and CMMI.</td>
+        </tr>
+        <tr>
+          <td>COM710</td>
+          <td>Web Technologies</td>
+          <td>2</td>
+          <td>This module provides learners from non-computing backgrounds with a thorough grounding in web development.
+            It will introduce students to the common client- and server-side scripting technologies used in the
+            development of web applications, such as HTML, CSS and JavaScript.
+            Students will combine the material learned with additional research to develop a realistic web application.
+            As this is a master level module students will be required to supplement the material learned in class with
+            their own research in web development techniques and security issues,
+            and demonstrate the application of this research in the practical assessment.</td>
+        </tr>
+        <tr>
+          <td>COM726</td>
+          <td>Dissertation</td>
+          <td>2</td>
+          <td>The Research Project allows students to undertake a large scale independent piece of research which
+            directly follows on from the Pilot Project that forms a part of the final dissertation.
+            This project must fit in with the core area of your degree, and must be focused on the gathering and
+            analysis of data in order to solve a research question.
+            Such research question(s) must be solved by utilising the knowledge and skills acquired throughout the
+            taught part of your course. Hence, it is imperative that core skills of your degree are evidenced with the
+            research work.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Include footer of the site -->
+  {% include "footer.html" %}
+
+</body>

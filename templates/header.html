@@ -1,0 +1,69 @@
+{% load static %}
+<!-- This will directly call static files eg. css, js and images -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- image/x-icon to clearly indicate to the browser that the linked file is an icon. -->
+    <link rel="icon" href="{% static 'img/solent_icon.ico' %}" type="image/x-icon">
+    <!-- jQuery from Google's CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script>
+        // Header JavaScript Functions
+
+        // Initialize materialize side navigation when document is ready
+        $(document).ready(function () {
+            $(".button-collapse").sideNav(); // Activates the sideNav plugin
+        });
+
+        // Ensure the mobile input field only accepts numeric values
+        document.addEventListener('DOMContentLoaded', function () {
+            var mobileInput = document.getElementById('mobile');
+            mobileInput.addEventListener('input', function () {
+                this.value = this.value.replace(/[^0-9]/g,
+                    ''); // Strip non-numeric characters from input
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var backgroundImg = document.getElementById('dynamicBackground');
+            var pageId = document.body
+                .id; // Assuming each body tag has a unique ID like 'aboutPage', 'activitiesPage', etc.
+
+            // Define your images for each page
+            var backgroundImages = {
+                aboutPage: '{% static "img/solent_aboutus_background_img.jpg" %}',
+                activitiesPage: '{% static "img/solent_activity_background_img.jpg" %}',
+                modulePage: '{% static "img/solent_modules_background_img.jpg" %}',
+                registrationPage: '{% static "img/solent_registration_background_img.jpg" %}'
+            };
+
+            // Update the src of the image based on the page ID
+            if (backgroundImages[pageId]) {
+                backgroundImg.src = backgroundImages[pageId];
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="image-container">
+        <img src="" alt="Background-Image" class="background" id="dynamicBackground">
+        <img src="{% static 'img/solent_logo1.png'%}" alt="Solent_Logo" class="logo">
+    </div>
+</body>
