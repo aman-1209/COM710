@@ -1,2 +1,2 @@
 # COM710
-Web Technologies Assignment
+Web Technologies using Django
